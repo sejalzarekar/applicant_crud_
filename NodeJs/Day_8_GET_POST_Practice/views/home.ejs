@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <%- include('navbar.ejs')%>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="bg-dark text-light fw-bold p-2 text-center rounded">Add Product</h1>
+        <p class="text-center text-muted mb-4">Enter product details below.</p>
+    
+        <form action="/saveproduct" method="post" enctype="application/x-www-form-urlencoded" class="bg-light p-4 rounded shadow-sm">
+    
+            <div class="mb-3">
+                <label for="productName" class="form-label">Product Name</label>
+                <input type="text" name="productName" id="productName" class="form-control" placeholder="Product Name" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="productPrice" class="form-label">Product Price</label>
+                <input type="text" name="productPrice" id="productPrice" class="form-control" placeholder="Product Price" required>
+            </div>
+    
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label for="productCategory" class="form-label">Product Category</label>
+                    <select name="productCategory" id="productCategory" class="form-control" required>
+                        <option value="">Select Category</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Clothing">Clothing</option>
+                        <option value="Books">Books</option>
+                        <option value="Home & Kitchen">Home & Kitchen</option>
+                        </select>
+                </div>
+    
+                <div class="col-md-4 mb-3">
+                    <label for="productBrand" class="form-label">Product Brand</label>
+                    <input type="text" name="productBrand" id="productBrand" class="form-control" placeholder="Brand Name">
+                </div>
+    
+                <div class="col-md-4 mb-3">
+                    <label for="productQuantity" class="form-label">Product Quantity</label>
+                    <input type="number" name="productQuantity" id="productQuantity" class="form-control" placeholder="Quantity" min="1" required>
+                </div>
+            </div>
+    
+            <div class="mb-3">
+                <label for="productColor" class="form-label">Product Color</label>
+                <input type="color" name="productColor" id="productColor" class="form-control form-control-color" value="#563d7c" title="Choose your color">
+            </div>
+    
+            <div class="mb-4">
+                <label for="productDescription" class="form-label">Product Description</label>
+                <textarea name="productDescription" id="productDescription" class="form-control" rows="4" placeholder="Enter product description"></textarea>
+            </div>
+    
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary px-4">Submit</button>
+            </div>
+    
+        </form>
+    </div>
+</body>
+</html>

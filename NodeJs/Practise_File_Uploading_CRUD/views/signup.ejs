@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('cdn.ejs') %>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center fw-bold ">
+            <div class="col-md-6 shadow-lg p-3">
+                <h2 class="text-center mb-4">Instagram Signup</h2>
+
+
+                <form action="/signup-form" method="post">
+
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="useremail" name="useremail"
+                            placeholder="Enter email" >
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" name="userpass" id="password"
+                            placeholder="Enter password" >
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="mobile" class="form-label">Mobile</label>
+                        <input type="tel" class="form-control" id="mobile" name="usermobile"
+                            placeholder="Enter mobile number" >
+                    </div>
+
+
+                    <div class="col-md-12 text-center fw-bold">
+                        <button type="submit" class="btn btn-danger fw-bold">SignUp</button>
+                        <p>Already Have An Account?<a href="/loginuser" class="text-decoration-none">Login</a> </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+.title{
+    font-size: 50px;
+    text-align: center;
+    text-shadow: 10px 5px 7px blue;
+
+}
+.hero{
+    width: 60px;
+    border: 1px solid rgb(193, 155, 161);
+    vertical-align: middle;
+}
+.space{
+    line-height: 200px;
+    text-align: center;
+}

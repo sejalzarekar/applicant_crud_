@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Update Profile</title>
+  <%- include('cdn.ejs')%>
+
+  <style>
+    body {
+      background-color: #f4f6f9;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .profile-form {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-label {
+      font-weight: 500;
+    }
+
+    .profile-preview {
+      display: block;
+      margin-top: 10px;
+      border-radius: 10px;
+      max-height: 200px;
+    }
+
+    .btn-sm-custom {
+      padding: 8px 25px;
+      font-size: 16px;
+      border-radius: 30px;
+    }
+
+    h2 {
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    input[type="file"] {
+      padding: 8px;
+      background: #f8f9fa;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Update Profile Details</h2>
+    <div class="profile-form">
+
+      <form action="/updateprofile" method="post" enctype="multipart/form-data">
+
+        <input type="hidden" name="profile_id" value="<%-data.profile_id%>" />
+
+        <!-- Full Name -->
+        <div class="mb-3">
+          <label for="fullname" class="form-label">Update Full Name</label>
+          <input type="text" class="form-control" id="fullname" name="fullname" value="<%- data.fullname %>">
+        </div>
+
+        <div class="row">
+          <div class="mb-3 col-md-6">
+            <label for="role" class="form-label">Role / Job Title</label>
+            <input type="text" class="form-control" id="role" name="role" value="<%- data.role %>">
+          </div>
+          <div class="mb-3 col-md-6">
+            <label for="username" class="form-label">Username / Tagline</label>
+            <input type="text" class="form-control" id="username" name="username" value="<%- data.username %>">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="mb-3 col-md-6">
+            <label for="location" class="form-label">Location (City, Country)</label>
+            <input type="text" class="form-control" id="location" name="location" value="<%- data.location %>">
+          </div>
+          <div class="mb-3 col-md-6">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" name="email" value="<%- data.email %>">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="mb-3 col-md-6">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="phone" name="phone" value="<%- data.phone %>">
+          </div>
+          <div class="mb-3 col-md-6">
+          <label for="join_date" class="form-label">Member Since</label>
+          <input 
+            type="date" 
+            class="form-control" 
+            id="join_date" 
+            name="join_date"
+            value="<%= data.join_date ? new Date(data.join_date).toISOString().split('T')[0] : '' %>"
+          >
+        </div>
+
+
+
+       <div class="mb-4">
+        <label for="file" class="form-label">Upload Profile Picture</label>
+        <div class="d-flex align-items-center gap-3">
+            <input type="file" class="form-control form-control-sm w-50" id="file" name="file">
+            <img src="/uploads/<%- data.file %>" alt="No user image" height="200" width="250" class="rounded border" />
+        </div>
+        </div>
+
+
+        <div class="mb-4">
+          <label for="bio" class="form-label">Short Bio / About</label>
+          <textarea class="form-control" id="bio" name="bio" rows="4" placeholder="Write a short description..."><%- data.bio %></textarea>
+        </div>
+
+        <div class="d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary btn-sm btn-sm-custom">Save Changes</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <%- include('navbar.ejs')%>
+</head>
+<body>
+    <div class="container mt-5">
+        <p class=" fw-bold p-2 text-center rounded">Here is the product information you submitted.</p>
+    
+        <table class="table table-bordered table-striped shadow-sm">
+            <thead class="table-dark text-center">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                    <th>Product Brand</th>
+                    <th>Quantity</th>
+                    <th>Category</th>
+                    <th>Color</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody class="text-center align-middle">
+                <tr>
+                    <td><%= productData.productName %></td>
+                    <td><%= productData.productPrice %></td>
+                    <td><%= productData.productBrand %></td>
+                    <td><%= productData.productQuantity %></td>
+                    <td><%= productData.productCategory %></td>
+                    <td>
+                        <span style="display: inline-block; width: 25px; height: 25px; background-color: <%= productData.productColor %>; border-radius: 50%; border: 1px solid #ccc;"></span>
+                        <br>
+                        <small><%= productData.productColor %></small>
+                    </td>
+                    <td><%= productData.productDescription %></td>
+                </tr>
+            </tbody>
+
+            
+        </table>
+    </div>
+    
+</body>
+</html>

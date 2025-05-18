@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Dashboard</title>
+   
+    <%-include('cdn.ejs')%>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        h2 {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .card {
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card img {
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .card a {
+            color: white;
+            text-decoration: none;
+        }
+        .card .btn {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>User Profile Dashboard</h2><hr>
+
+    <div class="container">
+        <div class="row g-4">
+            <% data.map((val,index)=>{ %>
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="img-cont text-align-center">
+                    <img src="/uploads/<%-val.file%>" alt="no user" height="100px" width="100px">
+                    </div>
+                    <h3><%- val.fullname %></h3>
+                    <h3><%- val.file %></h3>
+                    <div class="d-flex justify-content-center">
+                        <a href="/delete/<%-val.profile_id%>" onclick="return confirm('Are you Sure ? ');" class="btn btn-danger">Delete</a>
+                        <a href="/edit/<%-val.profile_id%>" class="btn btn-primary">Edit</a>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+
+   
+</body>
+</html>

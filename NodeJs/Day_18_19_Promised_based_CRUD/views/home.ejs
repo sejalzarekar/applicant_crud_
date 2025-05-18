@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Product</title>
+    <%- include('cdn.ejs') %> <!-- This should include Bootstrap CSS/JS -->
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="div-btn text-center">
+        <a href="/productsdata"><button class="btn btn-dark">Show All Products</button></a>
+    </div>
+        <h2 class="text-center fw-bold mb-4">Enter Product Details</h2>
+        <form action="/submit" method="POST">
+            <div class="mb-3">
+                <label for="pname" class="form-label">Enter Product Name:</label>
+                <input type="text" id="pname" name="pname" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="pcategory" class="form-label">Enter Product Category:</label>
+                <select name="pcategory" id="pcategory" class="form-select" required>
+                    <option value="">Select</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Groceerry">Groceerry</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Mens">Mens</option>
+                    <option value="Kids">Kids</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="pprice" class="form-label">Enter Product Price:</label>
+                <input type="text" id="pprice" name="pprice" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="pquantity" class="form-label">Enter Product Quantity:</label>
+                <input type="number" name="pquantity" id="pquantity" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="pdetails" class="form-label">Product Details:</label>
+                <textarea name="pdetails" id="pdetails" class="form-control" rows="3" required></textarea>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-dark px-4">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

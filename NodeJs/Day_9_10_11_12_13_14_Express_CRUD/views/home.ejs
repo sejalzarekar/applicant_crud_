@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Registration</title>
+  <%- include('cdn.ejs') %>
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="text-center my-4">
+    <a href="/allemp">
+      <button class="btn btn-dark px-4 fw-bold">View All Employees</button>
+    </a>
+  </div>
+
+  <div class="container">
+    <div class="form-container">
+      <h2 class="text-center fw-bold mb-4">User Registration</h2>
+
+      <form action="/saveform" method="POST">
+
+        <div class="mb-3">
+          <label for="empName" class="form-label">Employee Name:</label>
+          <input type="text" id="empName" name="empName" class="form-control" placeholder="Enter full name" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="empEmail" class="form-label">Employee Email:</label>
+          <input type="email" id="empEmail" name="empEmail" class="form-control" placeholder="example@domain.com" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="empPass" class="form-label">Employee Password:</label>
+          <input type="password" id="empPass" name="empPass" class="form-control" placeholder="Choose a strong password" required>
+        </div>
+
+        <div class="mb-4">
+          <label for="empRole" class="form-label">Employee Role:</label>
+          <select name="empRole" id="empRole" class="form-select" required>
+            <option value="none" disabled selected>Select a role</option>
+            <option value="MERN Developer">MERN Developer</option>
+            <option value="React Developer">React Developer</option>
+            <option value="Data Scientist">Data Scientist</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5 fw-bold">Save Employee</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+</body>
+
+</html>

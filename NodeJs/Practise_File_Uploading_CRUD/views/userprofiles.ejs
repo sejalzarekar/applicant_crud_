@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Details</title>
+    <%- include('cdn.ejs') %> <!-- Bootstrap CSS & JS -->
+    <style>
+        .profile-card {
+            transition: transform 0.3s ease;
+        }
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+        .img-cont img {
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="container my-5">
+        <h1 class="mb-4 text-center">User Profile Details</h1>
+        <hr>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <% data.map((val, index) => { %>
+                <div class="col">
+                    <div class="card profile-card shadow-sm h-100">
+                        <div class="text-center p-3">
+                            <div class="img-cont mb-3">
+                                <img src="/uploads/<%- val.file %>" alt="no user" height="100" width="100">
+                            </div>
+                            <h5 class="card-title mb-1"><strong><%= val.fullname %></strong></h5>
+                            <p class="text-muted mb-1"><%= val.role %></p>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Username:</strong> <%= val.username %></p>
+                            <p><strong>Email:</strong> <%= val.email %></p>
+                            <p><strong>Phone:</strong> <%= val.phone %></p>
+                            <p><strong>Location:</strong> <%= val.location %></p>
+                            <p><strong>Join Date:</strong>
+                                <% if (val.join_date) { 
+                                    const d = new Date(val.join_date);
+                                    const options = { day: '2-digit', month: 'short', year: 'numeric' };
+                                    const formattedDate = d.toLocaleDateString('en-GB', options);
+                                %>
+                                    <%= formattedDate %>
+                                <% } else { %>
+                                    Not provided
+                                <% } %>
+                            </p>
+
+                            <p><strong>Bio:</strong> <%= val.bio || 'No bio provided' %></p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="/edit/<%- val.profile_id %>" class="btn btn-primary btn-sm me-2">Edit</a>
+                            <a href="/delete/<%- val.profile_id %>" onclick="return confirm('Are you sure?');" class="btn btn-danger btn-sm">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+.text-box {
+    border: 2px solid black; /* Black border */
+    padding: 10px;          /* Space between text and border */
+    width: fit-content;     /* Box width adjusts to text */
+    background-color: violet; /* Light gray background */
+    border-radius: 5px;     /* Rounded corners */
+    
+}

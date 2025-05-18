@@ -1,0 +1,41 @@
+.mahi1{
+    border: 2px solid blue;
+    height: 200px;
+    width: 250px;
+    /* display: inline-block; */
+    background-color: red;
+    position: relative;
+    top: 20px;
+    left: 50px;
+   
+ 
+}
+.mahi2{
+    border: 2px solid blue;
+    height: 200px;
+    width: 250px;
+    /* display: inline-block; */
+    background-color: green;
+    position: relative;
+    top: 50px;
+    left: 50px;
+}
+.mahi3{
+    border: 2px solid blue;
+    height: 200px;
+    width: 250px;
+    /* display: inline-block; */
+    background-color: violet;
+}
+body{
+    height: 300vh;
+}
+.card{
+height: 50px;
+width: 50px;
+background-color: gray;
+border-radius: 50%;
+position: fixed;
+right: 20px;
+bottom: 20px;
+}

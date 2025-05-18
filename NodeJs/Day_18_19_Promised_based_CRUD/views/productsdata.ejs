@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <%- include('cdn.ejs') %> <!-- Should include Bootstrap CSS -->
+</head>
+<body class="bg-light">
+    <div class="container my-5">
+         <div class="div-btn text-center">
+        <a href="/"><button class="btn btn-dark">Go Previous</button></a>
+    </div>
+        <h1 class="text-center fw-bold mb-4">Product List</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover align-middle text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Sr.No</th>
+                        <th>Product ID</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Details</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach((val, index) => { %>
+                        <tr>
+                            <td><%= index + 1 %></td>
+                            <td><%= val.pid %></td>
+                            <td><%= val.pname %></td>
+                            <td><%= val.pcategory %></td>
+                            <td><%= val.pprice %></td>
+                            <td><%= val.pquantity %></td>
+                            <td><%= val.pdetails %></td>
+                            <td><a href="/delete/<%= val.pid%>" onclick="return confirm('Are you sure you want to delete this record?')">
+                                <i class="fa fa-trash fw-bold text-danger"></i>
+                                 </a><a href="/edit/<%-val.pid%>"><i class="fa fa-edit fw-bold text-success mx-3"></i></a></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

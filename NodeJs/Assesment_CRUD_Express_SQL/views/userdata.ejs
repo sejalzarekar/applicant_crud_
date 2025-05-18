@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users Data</title>
+    <%- include('cdn.ejs') %>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .custom-table {
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        th {
+            background-color: #343a40;
+            color: #ffc107;
+            text-align: center;
+        }
+
+        td {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .table-wrapper {
+            margin: 40px auto;
+            max-width: 90%;
+        }
+
+        .fa-trash {
+            cursor: pointer;
+        }
+
+        .fa-trash:hover {
+            transform: scale(1.1);
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container table-wrapper">
+        <h1 class="bg-dark text-center text-warning h3 py-3 rounded">Users Data</h1>
+        
+        <div class="table-responsive custom-table">
+            <table class="table table-hover table-bordered mb-0">
+                <thead>
+                    <tr>
+                        <th>Sr No</th>
+                        <th>User ID</th>
+                        <th>User Name</th>
+                        <th>User Email</th>
+                        <th>User Pass</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.map((val, index) => { %>
+                        <tr>
+                            <td><%= index + 1 %></td>
+                            <td><%= val.user_id %></td>
+                            <td><%= val.userName %></td>
+                            <td><%= val.userEmail %></td>
+                            <td><%= val.userPass %></td>
+                            <td><i class="fa fa-trash fw-bold text-danger"></i></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel Form</title>
+
+    <%- include('cdn.ejs') %>
+    <style>
+        body {
+            background: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            margin-bottom: 6px;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .btn-success {
+            box-shadow: 0 2px 6px rgba(40, 167, 69, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="btn-class text-center">
+    <a href="/manage-slider"><button class="btn btn-primary fw-bold mt-4 mb-3">Show all carsousel data</button></a>
+
+    </div>
+    <h1 class="p-4 mb-4 text-center bg-dark fw-bold text-warning h2 rounded-0">Slider Carousel Form </h1>
+
+    <div class="form-container">
+        <form action="/add-slider" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="slider_title" class="form-label">Enter Carousel Title</label>
+                <input type="text" name="slider_title" id="slider_title" class="form-control" placeholder="Enter a title for your carousel">
+            </div>
+
+            <div class="mb-3">
+                <label for="slider_desc" class="form-label">Enter Carousel Description</label>
+                <textarea name="slider_desc" id="slider_desc" class="form-control" rows="4" placeholder="Write a short description..."></textarea>
+            </div>
+
+            <div class="mb-4">
+                <label for="file" class="form-label">Upload Carousel Image</label>
+                <input type="file" name="file" id="file" class="form-control" required>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-success px-4 fw-bold">Upload Carousel</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

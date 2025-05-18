@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%-include('cdn.ejs')%>
+</head>
+<body class="bg-light d-flex align-items-center justify-content-center" style="height: 100vh;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 bg-white p-4 rounded shadow">
+                <h1 class="text-center fw-bold mb-4">Edit User</h1>
+
+                <form action="/updateform" method="post">
+                    <div class="mb-3">
+                        <label for="empId" hidden class="form-label">User Id:</label>
+                        <input type="text" hidden readonly name="empId" id="empId" value="<%- data.empId %>" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="empName" class="form-label">Update your name:</label>
+                        <input type="text" name="empName" id="empName" value="<%- data.empName %>" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="empEmail" class="form-label">Update your email:</label>
+                        <input type="email" name="empEmail" id="empEmail" value="<%- data.empEmail %>" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="empPass" class="form-label">Update your password:</label>
+                        <input type="text" name="empPass" id="empPass" value="<%- data.empPass %>" class="form-control">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="empRole" class="form-label">Update Employee Role:</label>
+                        <select name="empRole" id="empRole" class="form-select">
+                            <option value="<%- data.empRole %>"><%- data.empRole %></option>
+                            <option value="MERN Developer">MERN Developer</option>
+                            <option value="React Developer">React Developer</option>
+                            <option value="Data Scientist">Data Scientist</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-dark fw-bold">Update Form</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
